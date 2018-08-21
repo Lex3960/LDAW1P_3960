@@ -21,7 +21,7 @@ Cat: {{input type="text" value=cat}}
 </ul>
 
 {{input type="text" value=newDay}}
-<button{{action 'addDay' on="click"}}>Add Day</button>
+<button{{action 'addDay' on='click'}}>Add Day</button>
 
 <hr>
 
@@ -31,8 +31,15 @@ Cat: {{input type="text" value=cat}}
 </form>
 <ul>
 	{{#each tweetList as |tweet|}}
-		<li>{{tweet.user}} posted at 19:06 :{{tweet.content}}</li>
+		<li>
+			<p>{{tweet.user}} posted at 19:06:</p>
+			<p>{{input type='text' value=tweet.content}}<button {{action 'deleteTweet' tweet on='click'}}>Delete</button></p>
+		</li>
 	{{else}}
 		<p>No Tweets Registered.</p>
  	{{/each}}
 </ul>
+
+<br>
+<br>
+<br>

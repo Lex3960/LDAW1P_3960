@@ -45,6 +45,17 @@ export default Controller.extend({
 				content :content
 			});
 			this.set('tweetContent',null);
+		},
+		deleteTweet(tweet){
+			let tweets=this.get('tweetList');
+			let result = confirm("Borrar tweet? : " + tweet.content);
+			if(result) {
+				tweets.removeObject(tweet);
+			}
+			else {
+
+			}
+
 		}
  	}
 });

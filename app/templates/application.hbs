@@ -1,25 +1,6 @@
-<h2>Hello there...</h2>
-
-God: {{input type="text" value=god}}
-<h5>God value: {{god}}</h5>
-
-Cat: {{input type="text" value=cat}}
-<h5>Cat value: {{cat}}</h5>
-
-<hr>
-
-<button{{action 'doSomething' on='click'}}>Click here!</button>
-
-<hr>
-
+{{outlet}}
 <form {{action 'validateUser' on='submit'}}>
 	<p>User: {{input type="text" value=user}}</p>
 	<p>Password: {{input type="password" value=pass}}</p>
 	<button>Sign In</button>
 </form>
-
-<hr>
-
-<h4>My lucky day</h4>
-<button {{action 'myLuckyDay' on='click'}}>Discover</button>
-<h5>I'm feeling luck in {{luckyDay}}</h5>

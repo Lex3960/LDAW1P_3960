@@ -1,0 +1,38 @@
+<h2>Hello there...</h2>
+Cat: {{input type="text" value=cat}}
+<h5>Cat value: {{cat}}</h5>
+
+<button{{action 'doSomething' on='click'}}>Click here!</button>
+
+<hr>
+
+<h4>My lucky day</h4>
+<button {{action 'myLuckyDay' on='click'}}>Discover</button>
+<h5>I'm feeling luck in {{luckyDay.day}}</h5>
+
+<ul>
+	{{#each weekDays as |day|}}
+		{{#if day.number}}
+			<li>{{day.number}} | {{day.day}}</li>
+		{{/if}}
+	{{else}}
+		<li> No Days Registered.</li>
+	{{/each}}
+</ul>
+
+{{input type="text" value=newDay}}
+<button{{action 'addDay' on="click"}}>Add Day</button>
+
+<hr>
+
+<h4>Twitter</h4>
+<form {{action 'postTweet' on='submit'}}>
+	<p>{{input type="text" value=tweetContent}}<button>Tweet!</button></p>
+</form>
+<ul>
+	{{#each tweetList as |tweet|}}
+		<li>{{tweet.user}} posted at 19:06 :{{tweet.content}}</li>
+	{{else}}
+		<p>No Tweets Registered.</p>
+ 	{{/each}}
+</ul>

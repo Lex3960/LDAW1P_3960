@@ -13,6 +13,8 @@ export default Controller.extend({
 		{day: 'Saturday', number: 7, 'property': 'hello'},
  	],
 
+	isSaving: false;
+
  	tweetList: [],
 
  	actions:
@@ -56,6 +58,43 @@ export default Controller.extend({
 
 			}
 
+		},
+
+		createMeal(){
+			let content=this.get('mealContent');
+			let comidita = this.store.createRecord('meal', {
+				name: content
+			});
+
+			let result = confirm('¿Guardar comida?');
+			let isSaving = this.get('isSaving');
+			this.set(isSaving, true);
+
+			if(result && isSaving){
+				comidita.save().then(()=>{
+					console.log('No hay error, no hay error XdxDxd');
+				}).catch((e)=>{
+					console.log('Uy no, ya valió verghulis debido a: ' + e.toString());
+				}).finally(()=>{
+					this.set('mealContent',null);
+					this.set(isSaving, false);
+				});
+			}
+		},
+
+		editMeal(comidita){
+			let result = confirm('¿Guardar cambios?');
+			if(result){
+				comidita.save();
+			}
+		},
+
+		deleteMeal(comidita){
+			let result = confirm('¿Guardar cambios?');
+			if(result){
+				comidita.destroyRecord();
+			}
 		}
+
  	}
 });

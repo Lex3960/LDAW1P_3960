@@ -43,3 +43,23 @@ Cat: {{input type="text" value=cat}}
 <br>
 <br>
 <br>
+
+<hr>
+
+<h4>Meals for Breakfast</h4>
+<form {{action 'createMeal' on='submit'}}>
+	<p>{{input type="text" value=mealContent}}
+	<button disabled="{{isSaving}}">Meal!</button></p>
+</form>
+<ul>
+	{{#each model as |meal|}}
+		<li>
+			<p>{{input type='text' value=tweet.content}}
+				<button {{action 'editMeal' tweet on='click'}}>Edit</button>
+				<button {{action 'deleteMeal' tweet on='click'}}>Delete</button>
+			</p>
+		</li>
+	{{else}}
+		<p>No Meals Registered.</p>
+ 	{{/each}}
+</ul>

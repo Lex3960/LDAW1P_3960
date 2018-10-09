@@ -13,7 +13,7 @@ export default Controller.extend({
 		{day: 'Saturday', number: 7, 'property': 'hello'},
  	],
 
-	isSaving: false;
+	isSaving: false,
 
  	tweetList: [],
 
@@ -68,7 +68,7 @@ export default Controller.extend({
 
 			let result = confirm('¿Guardar comida?');
 			let isSaving = this.get('isSaving');
-			this.set(isSaving, true);
+			this.set('isSaving', true);
 
 			if(result && isSaving){
 				comidita.save().then(()=>{
@@ -77,7 +77,7 @@ export default Controller.extend({
 					console.log('Uy no, ya valió verghulis debido a: ' + e.toString());
 				}).finally(()=>{
 					this.set('mealContent',null);
-					this.set(isSaving, false);
+					this.set('isSaving', false);
 				});
 			}
 		},

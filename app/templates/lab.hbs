@@ -49,7 +49,8 @@ Cat: {{input type="text" value=cat}}
 <h4>Meals for Breakfast</h4>
 <form {{action 'createMeal' on='submit'}}>
 	<p>{{input type="text" value=mealContent}}
-	<button disabled="{{isSaving}}">Meal!</button></p>
+		{{log (not isSaving)}}
+	<button disabled={{isSaving}} >Meal!</button></p>
 </form>
 <ul>
 	{{#each model as |meal|}}
@@ -63,3 +64,7 @@ Cat: {{input type="text" value=cat}}
 		<p>No Meals Registered.</p>
  	{{/each}}
 </ul>
+
+<br>
+<br>
+<br>
